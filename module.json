@@ -17,12 +17,13 @@
     }
   ],
   "relationships": {
-    "systems": [],
+    "system": [{ "id": "pf1" }],
     "requires": []
   },
   "esmodules": [
     "src/main.js"
   ],
+  "system": ["pf1"],	
   "scripts": [],
   "styles": [],
   "languages": [
