@@ -1,0 +1,47 @@
+{
+  "id": "CombatReactionsAssistent",
+  "title": "Combat Reactions Assistent",
+  "description": "Refill the combar reactions count on every start of turn",
+ "version": "#{VERSION}#",
+  "library": "false",
+  "manifestPlusVersion": "1.2.0",
+  "compatibility": {
+    "minimum": 10,
+    "verified": 10,
+    "maximum": 11
+  },
+  "authors": [
+    {
+      "name": "juacom99",
+      "url": "https://github.com/juacom99",
+    }
+  ],
+  "relationships": {
+    "systems": [],
+    "requires": []
+  },
+  "esmodules": [
+    "src/main.js"
+  ],
+  "scripts": [],
+  "styles": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "langs/en.json"
+    },
+	{
+      "lang": "es",
+      "name": "Spanish",
+      "path": "langs/es.json"
+    },
+  ],
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
+  "license": "LICENSE",
+  "readme": "README.md",
+  
+  ]
+}
