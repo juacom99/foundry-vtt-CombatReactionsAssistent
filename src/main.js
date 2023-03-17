@@ -1,5 +1,20 @@
+const MODULE_ID='CombatReactionsAssistent'
+
 Hooks.once('init', async function() {
 	console.log("************************************************** juacom99's Combat Assistance INIT **************************************************"); 
+	game.settings.register(
+		MODULE_ID,
+		'hidden',
+		{
+			name: 'Combat Reactions Assistent',
+			hint: 'Refresh combat rfeactrion automaticaly',
+			type: String,
+			default: '',
+			config: true,
+			scope: 'world',
+			onChange: changeSkills
+		}
+
 });
 
 
