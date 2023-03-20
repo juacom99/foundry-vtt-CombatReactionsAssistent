@@ -24,22 +24,39 @@ Hooks.once('ready', async function() {
 
 
 
-Hooks.on('combatTurn', async function(combat,updateData,updateOptions) {
-  actorId=combat.turns[combat.turn].actorId
-  actor=Actor.get(actorId);
-  
-  combatReactions=actor.items.find((i)=>i.type=="feat" && i.name=="Combat Reactions")
-  
-  
-    if(combatReactions)
-    {
-      combatReactions.system.uses.value=combatReactions.system.uses.max
-      ui.notifications.info("Combat reactions refilled");
-    }
-    else
-    {
-        ui.notifications.error("No combat reactions");
-    }
-  
-  
+Hooks.on('combatTurn', async function(combat,updateData,updateOptions)
+{
+	const combatant = combat.combatant;
+	if (combatant && combatant.actor)
+	{
+		combatReactions=combatant.actor.items.find((i)=>i.type=="feat" && i.name=="Combat Reactions")
+		if(combatReactions)
+		{
+			CombatReactions.system.uses.value=combatReactions.system.uses.max
+			await reactionsItem.update({ "data.features": reactionsItem.data.data.features });    
+			ui.notifications.info("Combat reactions refilled");
+		}
+		else
+		{
+			ui.notifications.error("No combat reactions");
+		}	  
+  	}
+});
+	
+Hooks.on("updateCombat", (combat, changed) => {
+	const combatant = combat.combatant;
+	if (combatant && combatant.actor)
+	{
+		combatReactions=combatant.actor.items.find((i)=>i.type=="feat" && i.name=="Combat Reactions")
+		if(combatReactions)
+		{
+			CombatReactions.system.uses.value=combatReactions.system.uses.max
+			await reactionsItem.update({ "data.features": reactionsItem.data.data.features });    
+			ui.notifications.info("Combat reactions refilled");
+		}
+		else
+		{
+			ui.notifications.error("No combat reactions");
+		}	  
+  	}
 });
