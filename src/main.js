@@ -2,7 +2,7 @@ const MODULE_ID='CombatReactionsAssistent'
 
 Hooks.once('init', async function() {
 	console.log("************************************************** juacom99's Combat Assistance INIT **************************************************"); 
-	game.settings.register(
+	/*game.settings.register(
 		MODULE_ID,
 		'hidden',
 		{
@@ -11,9 +11,8 @@ Hooks.once('init', async function() {
 			type: String,
 			default: '',
 			config: true,
-			scope: 'world',
-			onChange: changeSkills
-		}
+			scope: 'world'
+		});*/
 
 });
 
