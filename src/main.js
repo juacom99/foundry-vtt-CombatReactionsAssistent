@@ -50,7 +50,7 @@ Hooks.on("updateCombat", (combat, changed) => {
 		if(combatReactions)
 		{
 			CombatReactions.system.uses.value=combatReactions.system.uses.max
-			await reactionsItem.update({ "data.features": reactionsItem.data.data.features });    
+			await combatReactions.update({ "data.features": combatReactions.data.data.features });    
 			ui.notifications.info("Combat reactions refilled");
 		}
 		else
