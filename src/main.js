@@ -41,21 +41,3 @@ Hooks.on('combatTurn', async function(combat,updateData,updateOptions)
 		}	  
   	}
 });
-	
-Hooks.on("updateCombat", (combat, changed) => {
-	const combatant = combat.combatant;
-	if (combatant && combatant.actor)
-	{
-		combatReactions=combatant.actor.items.find((i)=>i.type=="feat" && i.name=="Combat Reactions")
-		if(combatReactions)
-		{
-			CombatReactions.system.uses.value=combatReactions.system.uses.max
-			await combatReactions.update({ "data.features": combatReactions.data.data.features });    
-			ui.notifications.info("Combat reactions refilled");
-		}
-		else
-		{
-			ui.notifications.error("No combat reactions");
-		}	  
-  	}
-});
